@@ -10,7 +10,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 export async function POST(request: NextRequest) {
   const body = await request.text()
-  const signature = headers().get('stripe-signature')
+  const headersList = await headers()
+  const signature = headersList.get('stripe-signature')
 
   if (!signature) {
     return NextResponse.json(
