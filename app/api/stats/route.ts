@@ -32,7 +32,7 @@ export async function GET(request: NextRequest) {
       }),
     ])
 
-    const monthlyRevenue = monthlyPayments.reduce((sum, payment) => sum + payment.amount, 0)
+    const monthlyRevenue = monthlyPayments.reduce((sum: number, payment: any) => sum + payment.amount, 0)
 
     return NextResponse.json({
       stats: {

@@ -53,14 +53,14 @@ export async function POST(request: NextRequest) {
     try {
       await sendQuote(
         {
-          clientName: appointment.client.name,
+          clientName: appointment.client!.name,
           quoteId: quote.id,
           oneTimePrice,
           monthlyPrice,
           twiceMonthlyPrice,
           quoteUrl,
         },
-        appointment.client.email
+        appointment.client!.email
       )
     } catch (emailError) {
       console.error('Failed to send quote email:', emailError)

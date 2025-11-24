@@ -93,13 +93,13 @@ export async function POST(request: NextRequest) {
 
         await sendPaymentConfirmation(
           {
-            clientName: payment.client.name,
+            clientName: payment.client!.name,
             amount: payment.amount,
             frequency: frequencyLabel,
             nextServiceDate: formatDate(nextServiceDate),
-            address: payment.client.address,
+            address: payment.client!.address,
           },
-          payment.client.email
+          payment.client!.email
         )
       } catch (emailError) {
         console.error('Failed to send confirmation email:', emailError)

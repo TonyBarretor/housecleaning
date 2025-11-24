@@ -86,7 +86,7 @@ export async function POST(request: NextRequest) {
       success_url: `${process.env.NEXT_PUBLIC_APP_URL}/payment/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/quote/${quote.id}`,
       client_reference_id: payment.id,
-      customer_email: quote.client.email,
+      customer_email: quote.client!.email,
       metadata: {
         paymentId: payment.id,
         quoteId: quote.id,
