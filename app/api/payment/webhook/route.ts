@@ -6,9 +6,7 @@ import { formatDate } from '@/lib/utils'
 import Stripe from 'stripe'
 import { addDays, addMonths } from 'date-fns'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: '2024-12-18.acacia',
-})
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 export async function POST(request: NextRequest) {
   const body = await request.text()
