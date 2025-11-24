@@ -68,11 +68,12 @@
 }
 
 * {
-  @apply border-border;
+  border-color: var(--champagne-300);
 }
 
 body {
-  @apply bg-background text-foreground;
+  background: var(--background);
+  color: var(--foreground);
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   font-feature-settings: "rlig" 1, "calt" 1;
 }
