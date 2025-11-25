@@ -15,6 +15,7 @@ async function getQuote(id: string) {
       include: {
         client: true,
         appointment: true,
+        payment: true,
       },
     })
 
