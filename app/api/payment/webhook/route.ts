@@ -6,9 +6,15 @@ import { formatDate } from '@/lib/utils'
 import Stripe from 'stripe'
 import { addDays, addMonths } from 'date-fns'
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
+function getStripe() {
+  if (!process.env.STRIPE_SECRET_KEY) {
+    throw new Error('STRIPE_SECRET_KEY is not set')
+  }
+  return new Stripe(process.env.STRIPE_SECRET_KEY)
+}
 
 export async function POST(request: NextRequest) {
+  const stripe = getStripe()
   const body = await request.text()
   const headersList = await headers()
   const signature = headersList.get('stripe-signature')
